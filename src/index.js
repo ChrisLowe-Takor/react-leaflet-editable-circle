@@ -1,22 +1,16 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
-import styles from './styles.css'
+import LeafletEditableCircle from './leaflet-editable-circle';
 
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
+export default class ReactLeafletEditableCircle extends Component {
 
   render() {
-    const {
-      text
-    } = this.props
-
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
+		return (
+			<LeafletEditableCircle 
+				center={this.props.center} 
+				radius={this.props.radius}
+				onPositionChange={(latlng) => {this.props.onPositionChange(latlng) }}
+			/>
+		)	
+	}
 }
